@@ -32,9 +32,9 @@ stages:
             testResultsFiles: '**/surefire-reports/TEST-*.xml'
             javaHomeOption: 'JDKVersion'
             mavenVersionOption: 'Default'
-            mavenAuthenticateFeed: false
+            mavenAuthenticateFeed: true
             effectivePomSkip: false
-            sonarQubeRunAnalysis: false
+            sonarQubeRunAnalysis: true
             goals: 'package'
         - task: PublishPipelineArtifact@1
           inputs:
