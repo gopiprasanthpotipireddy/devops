@@ -38,7 +38,7 @@ stages:
             goals: 'package'
         - task: PublishPipelineArtifact@1
           inputs:
-            targetPath: $(System.DefaultWorkingDirectory)/bin/Addressbook
+            targetPath: $(System.DefaultWorkingDirectory)/target/addressbook.war
             artifactName: Addressbook
       
 
