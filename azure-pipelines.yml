@@ -34,7 +34,7 @@ stages:
             mavenVersionOption: 'Default'
             mavenAuthenticateFeed: true
             effectivePomSkip: false
-            sonarQubeRunAnalysis: true
+            sonarQubeRunAnalysis: false
             goals: 'package'
         - task: PublishPipelineArtifact@1
           inputs:
