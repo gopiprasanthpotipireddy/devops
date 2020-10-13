@@ -1,0 +1,44 @@
+# Maven
+
+# Build your Java project and run tests with Apache Maven.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+
+stages:
+- stage: A
+  jobs:
+    - job: A
+      steps:
+        - bash: echo "Building Maven Project"
+
+- stage: B
+  jobs:
+    - job: B
+      steps:
+        - bash: echo "Started"
+    - job: MavenBuild
+      steps:
+        - task: Maven@3
+          inputs:
+            mavenPomFile: 'pom.xml'
+            publishJUnitResults: true
+            testResultsFiles: '**/surefire-reports/TEST-*.xml'
+            javaHomeOption: 'JDKVersion'
+            mavenVersionOption: 'Default'
+            mavenAuthenticateFeed: true
+            effectivePomSkip: false
+            sonarQubeRunAnalysis: false
+            goals: 'package'
+        - task: PublishPipelineArtifact@1
+          inputs:
+            targetPath: $(System.DefaultWorkingDirectory)/target/addressbook.war
+            artifactName: Addressbook
+      
+

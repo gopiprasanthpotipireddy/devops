@@ -18,6 +18,16 @@
             <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
     </properties>
    <repositories>
+	<repository>
+  		<id>Addressbook</id>
+  		<url>https://pkgs.dev.azure.com/gopiprasanthp/MyPOC/_packaging/Addressbook/maven/v1</url>
+  		<releases>
+    		<enabled>true</enabled>
+  		</releases>
+  		<snapshots>
+    		<enabled>true</enabled>
+ 	   </snapshots>
+	</repository>
         <repository>
 		
             <id>vaadin-prereleases</id>
@@ -42,6 +52,7 @@
             </snapshots>
         </repository>
     </repositories>
+	 
 
     <pluginRepositories>
         <pluginRepository>
